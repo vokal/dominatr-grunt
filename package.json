@@ -2,7 +2,7 @@
   "name": "grunt-dominatr",
   "version": "1.0.0",
   "description": "Build all the things!",
-  "main": "source/index.js",
+  "main": "tasks/dominatr.js",
   "scripts": {
     "test": ""
   },
@@ -15,9 +15,5 @@
     "url": "https://github.com/vokal/grunt-dominatr/issues"
   },
   "homepage": "https://github.com/vokal/grunt-dominatr#readme",
-  "dependencies": {
-    "grunt": "^0.4.5",
-    "grunt-babel": "^5.0.1",
-    "grunt-contrib-clean": "^0.6.0"
-  }
+  "dependencies": {}
 }
