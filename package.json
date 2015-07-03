@@ -1,6 +1,6 @@
 {
   "name": "grunt-dominatr",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Build all the things!",
   "main": "tasks/dominatr.js",
   "scripts": {
