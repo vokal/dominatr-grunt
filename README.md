@@ -20,3 +20,8 @@ require( "load-grunt-config" )( grunt, {
 ```
 
 `package.json` should include a dependency on `dominatr-grunt` with a locked minor version, like 1.3.x. This version should not allow the major or minor to automatically upgrade.
+
+
+## History
+
+* 2.1.0 Use EJS for conditional source file inclusion
