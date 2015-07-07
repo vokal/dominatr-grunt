@@ -46,12 +46,3 @@ with
 <script src="/build/project.js?v={{ VERSION }}"></script>
 <% } %>
 ```
-
-Add a task `envUseSource` to `env.js`, like so
-```js
-grunt.registerTask( "envUseSource", "Run from original source files", function ()
-{
-    grunt.config( "useSource", true );
-} );
-```
-
