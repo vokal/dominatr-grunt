@@ -47,6 +47,7 @@ deployprod:
 deploy:
   - clean
   - buildcore
+  - clean:modules
   - babel
   - uglify
   - s3

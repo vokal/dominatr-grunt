@@ -1,4 +1,5 @@
 module.exports = {
     build: [ "build/" ],
-    coverage: [ "coverage/" ]
+    coverage: [ "coverage/" ],
+    modules: [ "build/modules/" ]
 };
