@@ -20,3 +20,29 @@ require( "load-grunt-config" )( grunt, {
 ```
 
 `package.json` should include a dependency on `dominatr-grunt` with a locked minor version, like 1.3.x. This version should not allow the major or minor to automatically upgrade.
+
+
+## History
+
+#### 2.1.0 Use EJS for conditional source file inclusion
+
+To upgrade:
+```
+npm install grunt-ejs --save
+npm uninstall grunt-usemin --save
+```
+
+In `index.js` replace script tag
+
+`<script src="/build/project.js?v={{ VERSION }}"></script>`
+
+with
+
+```
+<% if (useSource) { %>
+<!-- include: "type": "js", "files": "build/modules/*/*.js" -->
+<!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
+<% } else { %>
+<script src="/build/project.js?v={{ VERSION }}"></script>
+<% } %>
+```

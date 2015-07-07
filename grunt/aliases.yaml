@@ -1,7 +1,6 @@
 default:
   - envDev
   - buildcore
-  - usemin
 
 buildcore:
   - concat:scripts
@@ -12,11 +11,13 @@ buildcore:
   - svg_sprite
   - svgmin
   - includeSource
+  - ejs
   - ngtemplates
   - replace
 
 test:
   - envDev
+  - envUseSource
   - clean:build
   - buildcore
   - instrument
@@ -26,6 +27,7 @@ test:
 
 teststack:
   - envDev
+  - envUseSource
   - clean:build
   - buildcore
   - instrument
@@ -45,7 +47,7 @@ deployprod:
 deploy:
   - clean
   - buildcore
-  - usemin
+  - clean:modules
   - babel
   - uglify
   - s3
