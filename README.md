@@ -24,4 +24,34 @@ require( "load-grunt-config" )( grunt, {
 
 ## History
 
-* 2.1.0 Use EJS for conditional source file inclusion
+#### 2.1.0 Use EJS for conditional source file inclusion
+
+To upgrade:
+```
+npm install grunt-ejs --save
+npm uninstall grunt-usemin --save
+```
+
+In `index.js` replace script tag
+
+`<script src="/build/project.js?v={{ VERSION }}"></script>`
+
+with
+
+```
+<% if (useSource) { %>
+<!-- include: "type": "js", "files": "build/modules/*/*.js" -->
+<!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
+<% } else { %>
+<script src="/build/project.js?v={{ VERSION }}"></script>
+<% } %>
+```
+
+Add a task `envUseSource` to `env.js`, like so
+```js
+grunt.registerTask( "envUseSource", "Run from original source files", function ()
+{
+    grunt.config( "useSource", true );
+} );
+```
+

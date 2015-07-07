@@ -1,5 +1,5 @@
 module.exports = {
-    files: [ "build/scripts/project/**/*.js", "!build/scripts/project/mocks/*.js", "!build/project.js" ],
+    files: [ "build/modules/**/*.js", "!build/modules/**/mocks/*.js", "!build/project.js" ],
     options: {
         lazy: false,
         basePath: "."

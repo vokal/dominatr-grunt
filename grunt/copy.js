@@ -6,10 +6,12 @@ module.exports = function ( grunt )
         scripts:
         {
             expand: true,
-            cwd: "source/scripts/project/",
+            cwd: "source/modules/",
             src: [
-                "**/*.js",
-                "!**/*.spec.js"
+                "*/*.js",
+                "*/*/*.js",
+                "!**/*.spec.js",
+                "!*/tests/**/*.*"
             ],
             filter: function ( filepath )
             {
@@ -24,7 +26,7 @@ module.exports = function ( grunt )
 
                 return true;
             },
-            dest: "build/scripts/project/"
+            dest: "build/modules/"
         },
         fonts: {
             expand: true,
