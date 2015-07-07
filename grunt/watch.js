@@ -17,7 +17,7 @@ module.exports = {
     index:
     {
         files: "source/modules/_app/templates/index.html",
-        tasks: [ "envDev", "includeSource", "replace" ]
+        tasks: [ "envDev", "includeSource", "ejs", "replace" ]
     },
     templates:
     {
