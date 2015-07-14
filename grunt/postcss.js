@@ -4,7 +4,7 @@ module.exports = {
             require( 'autoprefixer-core' )( { browsers: 'last 2 versions' } ),
         ]
     },
-    dist: {
+    build: {
         src: 'build/project.css'
     }
 };
