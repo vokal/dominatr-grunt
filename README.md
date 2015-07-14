@@ -46,3 +46,10 @@ with
 <script src="/build/project.js?v={{ VERSION }}"></script>
 <% } %>
 ```
+
+#### 2.2.0 Add [PostCSS](https://github.com/nDmitry/grunt-postcss) and [Autoprefixer](https://github.com/postcss/autoprefixer)
+
+To upgrade:
+```
+npm install grunt-postcss autoprefixer-core --save
+```
