@@ -12,7 +12,7 @@ module.exports = {
     styles:
     {
         files: "source/modules/*/styles/*.*",
-        tasks: [ "less", "replace" ]
+        tasks: [ "less", "replace", "postcss" ]
     },
     index:
     {
