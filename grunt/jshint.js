@@ -9,12 +9,11 @@ module.exports = {
         },
         src:
         [
-            "source/app/*.js",
-            "source/modules/*/**.js",
-            "!source/modules/*/**.spec.js",
-            "grunt/**.js",
-            "Gruntfiles.js"
+            "source/modules/*/*.js",
+            "source/modules/*/*/*.js",
+            "!source/modules/*/tests/**/*.*",
+            "grunt/*.js",
+            "tests/*.js"
         ]
-
     }
 };
