@@ -53,3 +53,10 @@ To upgrade:
 ```
 npm install grunt-postcss autoprefixer-core --save
 ```
+
+#### 2.3.0 Add [Grunt-newer](https://github.com/tschaub/grunt-newer) and updates to jshint
+
+To upgrade:
+```
+npm install grunt-newer --save
+```
