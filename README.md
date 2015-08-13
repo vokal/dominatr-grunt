@@ -22,7 +22,40 @@ require( "load-grunt-config" )( grunt, {
 `package.json` should include a dependency on `dominatr-grunt` with a locked minor version, like 1.3.x. This version should not allow the major or minor to automatically upgrade.
 
 
-## History
+## Changelog
+
+#### 2.4.2 More minification, deferred JS loading, optimize workflow
+
+To upgrade, replace all `script` tag logic at the bottom of your `index.html` file with the following:
+```
+<% if( useDist ) { %>
+<script src="/build/dist.js?v={{ VERSION }}" defer></script>
+<% } else { %>
+<script src="/build/angular.js?v={{ VERSION }}"></script>
+<script src="/build/components.js?v={{ VERSION }}"></script>
+<% if( useSource ) { %>
+<!-- include: "type": "js", "files": "build/modules/*/*.js" -->
+<!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
+<% } else { %>
+<script src="/build/project.js?v={{ VERSION }}"></script>
+<% } %>
+<script src="/build/templates.js?v={{ VERSION }}"></script>
+<% } %>
+```
+
+#### 2.3.0 Add [Grunt-newer](https://github.com/tschaub/grunt-newer) and updates to jshint
+
+To upgrade:
+```
+npm install grunt-newer --save
+```
+
+#### 2.2.0 Add [PostCSS](https://github.com/nDmitry/grunt-postcss) and [Autoprefixer](https://github.com/postcss/autoprefixer)
+
+To upgrade:
+```
+npm install grunt-postcss autoprefixer-core --save
+```
 
 #### 2.1.0 Use EJS for conditional source file inclusion
 
@@ -45,18 +78,4 @@ with
 <% } else { %>
 <script src="/build/project.js?v={{ VERSION }}"></script>
 <% } %>
-```
-
-#### 2.2.0 Add [PostCSS](https://github.com/nDmitry/grunt-postcss) and [Autoprefixer](https://github.com/postcss/autoprefixer)
-
-To upgrade:
-```
-npm install grunt-postcss autoprefixer-core --save
-```
-
-#### 2.3.0 Add [Grunt-newer](https://github.com/tschaub/grunt-newer) and updates to jshint
-
-To upgrade:
-```
-npm install grunt-newer --save
 ```
