@@ -31,6 +31,14 @@ module.exports = function ( grunt )
                 "source/components/angular-animate/angular-animate.min.js",
                 "source/components/angular-mocks/angular-mocks.js"
             ],
+            filter: function ( filepath )
+            {
+                if( /mocks/.test( filepath ) )
+                {
+                    return grunt.option( "mocks" );
+                }
+                return true;
+            },
             dest: "build/angular.js"
         }
     };
