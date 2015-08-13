@@ -12,7 +12,7 @@ module.exports = function ( grunt )
         grunt.config( "useSource", false );
     } );
 
-    grunt.registerTask( "envUseDist", "Concatenate all JS into a distribution file", function ()
+    grunt.registerTask( "envUseDist", "Trigger distribution formatting, concat and minification", function ()
     {
         grunt.config( "useDist", true );
     } );
