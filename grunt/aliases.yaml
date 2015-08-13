@@ -23,6 +23,7 @@ test:
   - buildcore
   - instrument
   - protractor_coverage:local
+  - envDontUseSource
   - buildcore
   - makeReport
 
@@ -34,15 +35,18 @@ teststack:
   - instrument
   - localstack
   - protractor_coverage:stack
+  - envDontUseSource
   - buildcore
   - makeReport
 
 deploystaging:
   - envStaging
+  - envUseDist
   - deploy
 
 deployprod:
   - envProd
+  - envUseDist
   - deploy
 
 deploy:
@@ -51,5 +55,6 @@ deploy:
   - clean:modules
   - babel
   - uglify
+  - concat:dist
   - s3
   - cloudfront

@@ -3,7 +3,8 @@
 module.exports = {
     build: {
         options: {
-            useSource: "<%= useSource %>"
+            useSource: "<%= useSource %>",
+            useDist: "<%= useDist %>"
         },
         src: "build/index.html",
         dest: "build/index.html",

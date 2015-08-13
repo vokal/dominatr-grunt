@@ -4,6 +4,16 @@ module.exports = {
         atBegin: true,
         event: [ "changed", "added", "deleted" ]
     },
+    angular:
+    {
+        files: "<%= concat.angular.src %>",
+        tasks: [ "concat:angular" ]
+    },
+    components:
+    {
+        files: "<%= concat.components.src %>",
+        tasks: [ "concat:components" ]
+    },
     scripts:
     {
         files: "<%= concat.scripts.src %>",

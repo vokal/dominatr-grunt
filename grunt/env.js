@@ -6,4 +6,14 @@ module.exports = function ( grunt )
     {
         grunt.config( "useSource", true );
     } );
+
+    grunt.registerTask( "envDontUseSource", "Run from concatenated files", function ()
+    {
+        grunt.config( "useSource", false );
+    } );
+
+    grunt.registerTask( "envUseDist", "Concatenate all JS into a distribution file", function ()
+    {
+        grunt.config( "useDist", false );
+    } );
 };
