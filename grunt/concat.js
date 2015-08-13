@@ -12,11 +12,7 @@ module.exports = function ( grunt )
             ],
             filter: function ( filepath )
             {
-                if( /mocks/.test( filepath ) )
-                {
-                    return grunt.option( "mocks" );
-                }
-                return true;
+                return /mocks/.test( filepath ) ? grunt.option( "mocks" ) : true;
             },
             dest: "build/project.js"
         },
@@ -33,11 +29,7 @@ module.exports = function ( grunt )
             ],
             filter: function ( filepath )
             {
-                if( /mocks/.test( filepath ) )
-                {
-                    return grunt.option( "mocks" );
-                }
-                return true;
+                return /mocks/.test( filepath ) ? grunt.option( "mocks" ) : true;
             },
             dest: "build/angular.js"
         },
