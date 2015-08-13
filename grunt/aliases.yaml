@@ -41,10 +41,12 @@ teststack:
 
 deploystaging:
   - envStaging
+  - envUseDist
   - deploy
 
 deployprod:
   - envProd
+  - envUseDist
   - deploy
 
 deploy:
@@ -53,5 +55,6 @@ deploy:
   - clean:modules
   - babel
   - uglify
+  - concat:dist
   - s3
   - cloudfront

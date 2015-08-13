@@ -11,4 +11,9 @@ module.exports = function ( grunt )
     {
         grunt.config( "useSource", false );
     } );
+
+    grunt.registerTask( "envUseDist", "Concatenate all JS into a distribution file", function ()
+    {
+        grunt.config( "useDist", false );
+    } );
 };

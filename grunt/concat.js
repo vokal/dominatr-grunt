@@ -40,6 +40,16 @@ module.exports = function ( grunt )
                 return true;
             },
             dest: "build/angular.js"
+        },
+        dist:
+        {
+            src: [
+                "build/angular.js",
+                "build/components.js",
+                "build/project.js",
+                "build/templates.js"
+            ],
+            dest: "build/dist.js"
         }
     };
 
