@@ -27,7 +27,7 @@ require( "load-grunt-config" )( grunt, {
 #### 2.4.2 More minification, deferred JS loading, optimize workflow
 
 To upgrade, replace all `script` tag logic at the bottom of your `index.html` file with the following:
-```
+```html
 <% if( useDist ) { %>
 <script src="/build/dist.js?v={{ VERSION }}" defer></script>
 <% } else { %>
