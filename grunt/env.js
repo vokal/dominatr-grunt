@@ -14,6 +14,6 @@ module.exports = function ( grunt )
 
     grunt.registerTask( "envUseDist", "Concatenate all JS into a distribution file", function ()
     {
-        grunt.config( "useDist", false );
+        grunt.config( "useDist", true );
     } );
 };
