@@ -6,4 +6,9 @@ module.exports = function ( grunt )
     {
         grunt.config( "useSource", true );
     } );
+
+    grunt.registerTask( "envDontUseSource", "Run from concatenated files", function ()
+    {
+        grunt.config( "useSource", false );
+    } );
 };

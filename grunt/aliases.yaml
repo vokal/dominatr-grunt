@@ -23,6 +23,7 @@ test:
   - buildcore
   - instrument
   - protractor_coverage:local
+  - envDontUseSource
   - buildcore
   - makeReport
 
@@ -34,6 +35,7 @@ teststack:
   - instrument
   - localstack
   - protractor_coverage:stack
+  - envDontUseSource
   - buildcore
   - makeReport
 
