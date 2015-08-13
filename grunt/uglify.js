@@ -1,21 +1,18 @@
 module.exports = {
-    options:
-    {
-    },
     project:
     {
         options: {
             mangle: {},
             compress: {},
-            sourceMap: true,
-            banner: "/*! <%= pkg.name %> <%= grunt.template.today( 'yyyy-mm-dd' ) %> */"
+            sourceMap: false
         },
         files:
         {
-            "build/project.js": "build/project.js"
+            "build/project.js": "build/project.js",
+            "build/templates.js": "build/templates.js"
         }
     },
-    components:
+    libraries:
     {
         options:
         {
@@ -25,6 +22,7 @@ module.exports = {
         },
         files:
         {
+            "build/angular.js": "build/angular.js",
             "build/components.js": "build/components.js"
         }
     }
