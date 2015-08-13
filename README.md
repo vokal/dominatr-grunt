@@ -65,13 +65,15 @@ npm install grunt-ejs --save
 npm uninstall grunt-usemin --save
 ```
 
-In `index.js` replace script tag
+In `index.html` replace script tag
 
-`<script src="/build/project.js?v={{ VERSION }}"></script>`
+```html
+<script src="/build/project.js?v={{ VERSION }}"></script>
+```
 
 with
 
-```
+```html
 <% if (useSource) { %>
 <!-- include: "type": "js", "files": "build/modules/*/*.js" -->
 <!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
