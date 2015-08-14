@@ -4,7 +4,7 @@ module.exports = {
     all:
     {
         options: {
-            force: false, // jshint must pass or fail build
+            force: true,
             jshintrc: ".jshintrc",
         },
         src:
