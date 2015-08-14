@@ -5,7 +5,7 @@ module.exports = {
     {
         options: {
             force: true,
-            jshintrc: ".jshintrc",
+            jshintrc: ".jshintrc"
         },
         src:
         [
@@ -20,7 +20,7 @@ module.exports = {
     {
         options: {
             force: false,
-            jshintrc: ".jshintrc",
+            jshintrc: ".jshintrc"
         },
         src:
         [
