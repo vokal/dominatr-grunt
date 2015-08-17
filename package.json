@@ -14,5 +14,7 @@
     "url": "https://github.com/vokal/dominatr-grunt/issues"
   },
   "homepage": "https://github.com/vokal/dominatr-grunt#readme",
-  "dependencies": {}
+  "dependencies": {
+      "autoprefixer-core": "^5.2.1"
+  }
 }
