@@ -26,12 +26,14 @@ test:
   - envDontUseSource
   - buildcore
   - makeReport
+  - jshint:dev
 
 teststack:
   - envDev
   - envUseSource
   - clean:build
   - buildcore
+  - jshint:deploy
   - instrument
   - localstack
   - protractor_coverage:stack

@@ -17,7 +17,7 @@ module.exports = {
     scripts:
     {
         files: "<%= concat.scripts.src %>",
-        tasks: [ "envDev", "newer:jshint", "concat:scripts", "replace" ]
+        tasks: [ "envDev", "newer:jshint:dev", "concat:scripts", "replace" ]
     },
     styles:
     {
