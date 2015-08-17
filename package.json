@@ -1,18 +1,18 @@
 {
   "name": "dominatr-grunt",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "description": "Build all the things!",
   "scripts": {
     "test": ""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vokal/grunt-dominatr.git"
+    "url": "git+https://github.com/vokal/dominatr-grunt.git"
   },
   "author": "Vokal",
   "bugs": {
-    "url": "https://github.com/vokal/grunt-dominatr/issues"
+    "url": "https://github.com/vokal/dominatr-grunt/issues"
   },
-  "homepage": "https://github.com/vokal/grunt-dominatr#readme",
+  "homepage": "https://github.com/vokal/dominatr-grunt#readme",
   "dependencies": {}
 }

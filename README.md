@@ -24,22 +24,27 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
+#### 2.5.0 Cache and versioning changes
+
+To upgrade, remove all `?v={{ VERSION }}` string from your project
+
+
 #### 2.4.2 More minification, deferred JS loading, optimize workflow
 
 To upgrade, replace all `script` tag logic at the bottom of your `index.html` file with the following:
 ```html
 <% if( useDist ) { %>
-<script src="/build/dist.js?v={{ VERSION }}" defer></script>
+<script src="/build/dist.js" defer></script>
 <% } else { %>
-<script src="/build/angular.js?v={{ VERSION }}"></script>
-<script src="/build/components.js?v={{ VERSION }}"></script>
+<script src="/build/angular.js"></script>
+<script src="/build/components.js"></script>
 <% if( useSource ) { %>
 <!-- include: "type": "js", "files": "build/modules/*/*.js" -->
 <!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
 <% } else { %>
-<script src="/build/project.js?v={{ VERSION }}"></script>
+<script src="/build/project.js"></script>
 <% } %>
-<script src="/build/templates.js?v={{ VERSION }}"></script>
+<script src="/build/templates.js"></script>
 <% } %>
 ```
 
@@ -68,7 +73,7 @@ npm uninstall grunt-usemin --save
 In `index.html` replace script tag
 
 ```html
-<script src="/build/project.js?v={{ VERSION }}"></script>
+<script src="/build/project.js"></script>
 ```
 
 with
@@ -78,6 +83,6 @@ with
 <!-- include: "type": "js", "files": "build/modules/*/*.js" -->
 <!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
 <% } else { %>
-<script src="/build/project.js?v={{ VERSION }}"></script>
+<script src="/build/project.js"></script>
 <% } %>
 ```
