@@ -24,9 +24,16 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
-#### 2.5.0 Cache and versioning changes
+#### 3.1.0 Cache and versioning changes
 
 To upgrade, remove all `?v={{ VERSION }}` string from your project
+
+
+#### 3.0.0 Run jshint with tests, fail drone builds
+
+To upgrade, make sure the jshint report you get when running local tests comes back clean.  Projects that may have previously passed on drone will now fail if they have jshint errors.
+
+Additionally, jshint will no longer fail tasks during `grunt watch`.
 
 
 #### 2.4.2 More minification, deferred JS loading, optimize workflow
