@@ -26,7 +26,12 @@ require( "load-grunt-config" )( grunt, {
 
 #### 3.1.0 Cache and versioning changes
 
-To upgrade, remove all `?v={{ VERSION }}` string from your project
+To upgrade:
+
+- remove all `?v={{ VERSION }}` strings from your project
+- remove `--gitver=$(git rev-parse --short HEAD)` from `drone.yml` (leaving it won't hurt anything, but it is no longer used)
+- `npm install grunt-filerev --save`
+- `npm install grunt-filerev-replace --save`
 
 
 #### 3.0.0 Run jshint with tests, fail drone builds
