@@ -5,8 +5,18 @@ module.exports = {
         bucket: "<%= aws.s3Bucket %>"
     },
     build: {
+        options : {
+            headers: {
+                CacheControl: 31536000
+            }
+        },
         cwd: "build/",
-        src: "**",
+        src: [ "**", "!**.html" ],
+        dest: "build-<%= version %>/build/"
+    },
+    index: {
+        cwd: "build/",
+        src: "**.html",
         dest: "build-<%= version %>/build/"
     }
 };
