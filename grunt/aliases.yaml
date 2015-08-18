@@ -21,6 +21,7 @@ test:
   - envUseSource
   - clean:build
   - buildcore
+  - rev
   - instrument
   - protractor_coverage:local
   - envDontUseSource
@@ -33,6 +34,7 @@ teststack:
   - envUseSource
   - clean:build
   - buildcore
+  - rev
   - jshint:deploy
   - instrument
   - localstack
@@ -41,19 +43,23 @@ teststack:
   - buildcore
   - makeReport
 
+rev:
+  - filerev
+  - filerev_replace
+
 deploystaging:
   - envStaging
-  - envUseDist
   - deploy
 
 deployprod:
   - envProd
-  - envUseDist
   - deploy
 
 deploy:
+  - envUseDist
   - clean
   - buildcore
+  - rev
   - clean:modules
   - babel
   - uglify
