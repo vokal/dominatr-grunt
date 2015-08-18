@@ -49,15 +49,14 @@ rev:
 
 deploystaging:
   - envStaging
-  - envUseDist
   - deploy
 
 deployprod:
   - envProd
-  - envUseDist
   - deploy
 
 deploy:
+  - envUseDist
   - clean
   - buildcore
   - rev

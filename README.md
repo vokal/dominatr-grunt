@@ -45,17 +45,17 @@ Additionally, jshint will no longer fail tasks during `grunt watch`.
 To upgrade, replace all `script` tag logic at the bottom of your `index.html` file with the following:
 ```html
 <% if( useDist ) { %>
-<script src="/build/dist.js" defer></script>
+<script src="/build/dist.js?v={{ VERSION }}" defer></script>
 <% } else { %>
-<script src="/build/angular.js"></script>
-<script src="/build/components.js"></script>
+<script src="/build/angular.js?v={{ VERSION }}"></script>
+<script src="/build/components.js?v={{ VERSION }}"></script>
 <% if( useSource ) { %>
 <!-- include: "type": "js", "files": "build/modules/*/*.js" -->
 <!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
 <% } else { %>
-<script src="/build/project.js"></script>
+<script src="/build/project.js?v={{ VERSION }}"></script>
 <% } %>
-<script src="/build/templates.js"></script>
+<script src="/build/templates.js?v={{ VERSION }}"></script>
 <% } %>
 ```
 
@@ -84,7 +84,7 @@ npm uninstall grunt-usemin --save
 In `index.html` replace script tag
 
 ```html
-<script src="/build/project.js"></script>
+<script src="/build/project.js?v={{ VERSION }}"></script>
 ```
 
 with
@@ -94,6 +94,6 @@ with
 <!-- include: "type": "js", "files": "build/modules/*/*.js" -->
 <!-- include: "type": "js", "files": "build/modules/*/*/*.js" -->
 <% } else { %>
-<script src="/build/project.js"></script>
+<script src="/build/project.js?v={{ VERSION }}"></script>
 <% } %>
 ```
