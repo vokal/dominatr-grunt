@@ -24,7 +24,7 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
-#### 4.0.0 [Breaking Changes] Cache and versioning changes
+#### 4.0.1 [Breaking Changes] Cache and versioning changes
 
 To upgrade:
 

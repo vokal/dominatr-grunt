@@ -21,8 +21,8 @@ test:
   - envUseSource
   - clean:build
   - buildcore
-  - rev
   - instrument
+  - rev
   - protractor_coverage:local
   - envDontUseSource
   - buildcore
@@ -34,9 +34,9 @@ teststack:
   - envUseSource
   - clean:build
   - buildcore
-  - rev
   - jshint:deploy
   - instrument
+  - rev
   - localstack
   - protractor_coverage:stack
   - envDontUseSource
@@ -59,10 +59,10 @@ deploy:
   - envUseDist
   - clean
   - buildcore
-  - rev
   - clean:modules
   - babel
   - uglify
   - concat:dist
+  - rev
   - s3
   - cloudfront

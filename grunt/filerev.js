@@ -4,6 +4,6 @@ module.exports = {
         length: 8
     },
     resources: {
-        src: "build/**/*.{jpg,jpeg,gif,png,webp,svg,js,css}"
+        src: "build/**/*.{jpg,jpeg,gif,png,ico,webp,svg,js,json,css}"
     }
 };
