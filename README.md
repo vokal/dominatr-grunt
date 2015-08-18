@@ -24,7 +24,7 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
-#### 3.1.0 Cache and versioning changes
+#### 4.0.0 [Breaking Changes] Cache and versioning changes
 
 To upgrade:
 
@@ -33,7 +33,7 @@ To upgrade:
 - `npm install grunt-filerev-replace --save`
 
 
-#### 3.0.0 Run jshint with tests, fail drone builds
+#### 3.0.0 [Breaking Changes] Run jshint with tests, fail drone builds
 
 To upgrade, make sure the jshint report you get when running local tests comes back clean.  Projects that may have previously passed on drone will now fail if they have jshint errors.
 
