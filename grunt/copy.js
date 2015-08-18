@@ -19,7 +19,7 @@ module.exports = function ( grunt )
                 {
                     return grunt.option( "replacemocks" );
                 }
-                else if( /\/mocks/.test( filepath ) )
+                else if( /mocks/.test( filepath ) )
                 {
                     return grunt.option( "mocks" );
                 }

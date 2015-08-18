@@ -8,7 +8,7 @@ module.exports = function ( grunt )
             src: [
                 "source/modules/*/*.js",
                 "source/modules/*/*/*.js",
-                "!source/modules/*/tests/**/*.*",
+                "!source/modules/*/tests/**/*.*"
             ],
             filter: function ( filepath )
             {
