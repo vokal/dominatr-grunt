@@ -3,6 +3,7 @@ default:
   - buildcore
 
 buildcore:
+  - clean:build
   - concat:scripts
   - concat:angular
   - concat:components
@@ -19,13 +20,11 @@ buildcore:
 test:
   - envDev
   - envUseSource
-  - clean:build
   - buildcore
   - instrument
   - rev
   - protractor_coverage:local
   - envDontUseSource
-  - clean:build
   - buildcore
   - makeReport
   - jshint:dev
@@ -33,7 +32,6 @@ test:
 teststack:
   - envDev
   - envUseSource
-  - clean:build
   - buildcore
   - jshint:deploy
   - instrument
@@ -41,7 +39,6 @@ teststack:
   - localstack
   - protractor_coverage:stack
   - envDontUseSource
-  - clean:build
   - buildcore
   - makeReport
 
