@@ -25,6 +25,7 @@ test:
   - rev
   - protractor_coverage:local
   - envDontUseSource
+  - clean:build
   - buildcore
   - makeReport
   - jshint:dev
@@ -40,6 +41,7 @@ teststack:
   - localstack
   - protractor_coverage:stack
   - envDontUseSource
+  - clean:build
   - buildcore
   - makeReport
 
