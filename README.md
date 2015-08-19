@@ -24,6 +24,10 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
+#### 4.0.3 Always clean before building
+
+Resets the build folder after running tests.
+
 #### 4.0.2 Add livereload to `grunt watch`
 
 Nothing is needed to upgrade, but to use LiveReload you will need a browser extension. Install one for your browser from [here](http://livereload.com/extensions/), and click the extension while `grunt watch` is running.

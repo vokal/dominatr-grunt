@@ -3,6 +3,7 @@ default:
   - buildcore
 
 buildcore:
+  - clean:build
   - concat:scripts
   - concat:angular
   - concat:components
@@ -19,7 +20,6 @@ buildcore:
 test:
   - envDev
   - envUseSource
-  - clean:build
   - buildcore
   - instrument
   - rev
@@ -32,7 +32,6 @@ test:
 teststack:
   - envDev
   - envUseSource
-  - clean:build
   - buildcore
   - jshint:deploy
   - instrument
