@@ -16,13 +16,15 @@ module.exports = function ( grunt )
     {
         if( grunt.config( "useRobotsIndex") && grunt.config( "Host") )
         {
-            grunt.file.write( "/build/robots.txt",
+            grunt.log.write( "Writing robots.txt for indexing" );
+            grunt.file.write( "build/robots.txt",
                 "User-agent: *\n"
                 + "Sitemap: " + grunt.config( "Host") + "/build/sitemap.txt\n" );
         }
         else
         {
-            grunt.file.write( "/build/robots.txt",
+            grunt.log.write( "Writing robots.txt for NO indexing" );
+            grunt.file.write( "build/robots.txt",
                 "User-agent: *\n"
                 + "disallow: /\n" );
         }
