@@ -1,5 +1,5 @@
 default:
-  - envDev
+  - envLocal
   - buildcore
 
 buildcore:
@@ -18,7 +18,7 @@ buildcore:
   - replace
 
 test:
-  - envDev
+  - envLocal
   - envUseSource
   - buildcore
   - instrument
@@ -30,7 +30,7 @@ test:
   - jshint:dev
 
 teststack:
-  - envDev
+  - envLocal
   - envUseSource
   - buildcore
   - jshint:deploy
@@ -45,6 +45,10 @@ teststack:
 rev:
   - filerev
   - filerev_replace
+
+deploydev:
+  - envDev
+  - deploy
 
 deploystaging:
   - envStaging
