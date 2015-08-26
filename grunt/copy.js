@@ -61,6 +61,15 @@ module.exports = function ( grunt )
             ],
             dest: "build/"
         },
+        sitemap:
+        {
+            expand: true,
+            cwd: "source/",
+            src: [
+                "**/sitemap.txt"
+            ],
+            dest: "build/"
+        },
         sounds:
         {
             expand: true,

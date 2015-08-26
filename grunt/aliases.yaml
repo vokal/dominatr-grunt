@@ -52,6 +52,7 @@ deploystaging:
 
 deployprod:
   - envProd
+  - envRobotsIndex
   - deploy
 
 deploy:
