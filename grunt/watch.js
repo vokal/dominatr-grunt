@@ -18,7 +18,7 @@ module.exports = {
     scripts:
     {
         files: "<%= concat.scripts.src %>",
-        tasks: [ "envDev", "newer:jshint:dev", "concat:scripts", "replace" ]
+        tasks: [ "envLocal", "newer:jshint:dev", "concat:scripts", "replace" ]
     },
     styles:
     {
@@ -28,13 +28,13 @@ module.exports = {
     index:
     {
         files: "source/modules/_app/templates/index.html",
-        tasks: [ "envDev", "includeSource", "ejs", "replace" ]
+        tasks: [ "envLocal", "includeSource", "ejs", "replace" ]
     },
     templates:
     {
         options: { cwd: "<%= ngtemplates.build.cwd %>" },
         files: "<%= ngtemplates.build.src %>",
-        tasks: [ "envDev", "ngtemplates", "replace" ]
+        tasks: [ "envLocal", "ngtemplates", "replace" ]
     },
     fonts:
     {
