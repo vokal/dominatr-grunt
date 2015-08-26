@@ -24,6 +24,30 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
+#### 5.0.0 [Breaking Changes] robots.txt and sitemap handling; add 4th environment.
+
+The reference to sitemap.txt that is in the robots.txt file requires the hostname, which should be added to the `envProd` task in `grunt/env.js` like this:
+
+```js
+grunt.config( "Host", "<http(s)://www.domain.com>" );
+```
+
+Also in `grunt/env.js`, the `envDev` task should be renamed `envLocal`.
+
+If a development deployment is required, an `envDev` task should be added to `grunt/env.js`:
+
+```js
+grunt.registerTask( "envDev", "Set environment variables for dev deployment", function ()
+{
+    grunt.config( "aws.s3Bucket", "<s3-bucket-name>" );
+    grunt.config( "aws.cloudfrontDistributionId", "<cloudfront-dist-id>" );
+
+    grunt.config( "APIRoot", "<dev-api-path>" );
+} );
+```
+
+And the above is then used from `.drone.yml` by replacing `deploystaging` with `deploydev`.
+
 #### 4.0.3 Always clean before building
 
 Resets the build folder after running tests.
