@@ -26,7 +26,7 @@ require( "load-grunt-config" )( grunt, {
 
 #### 5.0.0 robots.txt and sitemap handling; add 4th environment.
 
-The reference to sitemap.xml that is in the robots.txt file requires the hostname, which should be added to the `envProd` task in `grunt/env.js` like this:
+The reference to sitemap.txt that is in the robots.txt file requires the hostname, which should be added to the `envProd` task in `grunt/env.js` like this:
 
 ```js
 grunt.config( "Host", "<http(s)://www.domain.com>" );
