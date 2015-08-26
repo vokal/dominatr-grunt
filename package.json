@@ -1,6 +1,6 @@
 {
   "name": "dominatr-grunt",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "description": "Build all the things!",
   "scripts": {
     "test": ""

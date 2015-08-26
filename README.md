@@ -24,6 +24,14 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
+#### 4.1.0 robots.txt and sitemap handling
+
+The reference to sitemap.xml that is in the robots.txt file requires the hostname, which should be added to the `envProd` task in `grunt/env.js` like this:
+
+```js
+grunt.config( "Host", "<http(s)://www.domain.com>" );
+```
+
 #### 4.0.3 Always clean before building
 
 Resets the build folder after running tests.
