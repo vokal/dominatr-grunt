@@ -32,7 +32,9 @@ The reference to sitemap.txt that is in the robots.txt file requires the hostnam
 grunt.config( "Host", "<http(s)://www.domain.com>" );
 ```
 
-Also in `grunt/env.js`, the `envDev` task should be renamed `envLocal` and if a development deployment is required, an `envDev` task should be added.
+Also in `grunt/env.js`, the `envDev` task should be renamed `envLocal`.
+
+If a development deployment is required, an `envDev` task should be added to `grunt/env.js`:
 
 ```js
 grunt.registerTask( "envDev", "Set environment variables for dev deployment", function ()
@@ -43,6 +45,8 @@ grunt.registerTask( "envDev", "Set environment variables for dev deployment", fu
     grunt.config( "APIRoot", "<dev-api-path>" );
 } );
 ```
+
+And the above is then used from `.drone.yml` by replacing `deploystaging` with `deploydev`.
 
 #### 4.0.3 Always clean before building
 
