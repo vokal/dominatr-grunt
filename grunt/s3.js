@@ -18,5 +18,10 @@ module.exports = {
         cwd: "build/",
         src: "**.html",
         dest: "build-<%= version %>/build/"
+    },
+    robots: {
+        cwd: "build/",
+        src: "robots.txt",
+        dest: "build-<%= version %>/"
     }
 };
