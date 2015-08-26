@@ -14,12 +14,12 @@ module.exports = function ( grunt )
 
     grunt.registerTask( "robots", "Write a robots.txt", function ()
     {
-        if( grunt.config( "useRobotsIndex") && grunt.config( "Host") )
+        if( grunt.config( "useRobotsIndex" ) && grunt.config( "Host" ) )
         {
             grunt.log.write( "Writing robots.txt for indexing" );
             grunt.file.write( "build/robots.txt",
                 "User-agent: *\n"
-                + "Sitemap: " + grunt.config( "Host") + "/build/sitemap.txt\n" );
+                + "Sitemap: " + grunt.config( "Host" ) + "/build/sitemap.txt\n" );
         }
         else
         {
