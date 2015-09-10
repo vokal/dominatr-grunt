@@ -7,6 +7,7 @@ buildcore:
   - concat:scripts
   - concat:angular
   - concat:components
+  - babel
   - less
   - postcss
   - copy
@@ -64,7 +65,6 @@ deploy:
   - clean
   - buildcore
   - clean:modules
-  - babel
   - uglify
   - concat:dist
   - rev
