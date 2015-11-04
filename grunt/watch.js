@@ -1,7 +1,6 @@
 module.exports = {
     options:
     {
-        atBegin: true,
         livereload: true,
         event: [ "changed", "added", "deleted" ]
     },
