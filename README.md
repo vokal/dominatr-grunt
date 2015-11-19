@@ -24,6 +24,10 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
+#### 5.0.3 Add license to `package.json`
+
+Added MIT license
+
 #### 5.0.2 Update autoprefixer dependency
 
 `autoprefixer-core` was deprecated after components merged into `autoprefixer` 6.0

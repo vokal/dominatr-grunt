@@ -1,6 +1,6 @@
 {
   "name": "dominatr-grunt",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Build all the things!",
   "scripts": {
     "test": ""
@@ -10,6 +10,7 @@
     "url": "git+https://github.com/vokal/dominatr-grunt.git"
   },
   "author": "Vokal",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vokal/dominatr-grunt/issues"
   },
