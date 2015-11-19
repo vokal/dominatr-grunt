@@ -24,6 +24,14 @@ require( "load-grunt-config" )( grunt, {
 
 ## Changelog
 
+#### 5.0.2 Update autoprefixer dependency
+
+`autoprefixer-core` was deprecated after components merged into `autoprefixer` 6.0
+
+#### 5.0.1 Fix watch environment
+
+watch file should refer to envLocal
+
 #### 5.0.0 [Breaking Changes] robots.txt and sitemap handling; add 4th environment.
 
 The reference to sitemap.txt that is in the robots.txt file requires the hostname, which should be added to the `envProd` task in `grunt/env.js` like this:
