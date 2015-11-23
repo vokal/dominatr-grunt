@@ -1,7 +1,7 @@
 module.exports = {
     options: {
         processors: [
-            require( "autoprefixer" )( { browsers: "IE >= 9, > 1%" } )
+            require( "autoprefixer-core" )( { browsers: "IE >= 9, > 1%" } )
         ]
     },
     build: {
