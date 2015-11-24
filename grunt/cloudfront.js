@@ -1,13 +1,18 @@
-module.exports = {
-    options: {
-        accessKeyId:     "<%= aws.accessKeyId %>",
-        secretAccessKey: "<%= aws.secretAccessKey %>",
-        distributionId:  "<%= aws.cloudfrontDistributionId %>",
-        invalidations:   [ "/*" ]
-    },
-    build: {
+"use strict";
+
+module.exports = function ( grunt )
+{
+    return {
         options: {
-            originPath: "/build-<%= version %>"
+            accessKeyId:     grunt.option( "aws-access-key-id" ),
+            secretAccessKey: grunt.option( "aws-secret-access-key" ),
+            distributionId:  grunt.config( "env" )[ "aws.distributionId" ],
+            invalidations:   [ "/*" ]
+        },
+        build: {
+            options: {
+                originPath: "/build-<%= version %>"
+            }
         }
-    }
+    };
 };

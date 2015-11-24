@@ -1,6 +1,6 @@
 {
   "name": "dominatr-grunt",
-  "version": "5.0.4",
+  "version": "6.0.0",
   "description": "Build all the things!",
   "scripts": {
     "test": ""
@@ -16,6 +16,9 @@
   },
   "homepage": "https://github.com/vokal/dominatr-grunt#readme",
   "dependencies": {
-      "autoprefixer-core": "^5.2.1"
+    "autoprefixer": "^6.1.1",
+    "connect-modrewrite": "^0.8.2",
+    "cssnano": "^3.3.2",
+    "serve-static": "^1.10.0"
   }
 }

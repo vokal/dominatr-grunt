@@ -1,32 +1,25 @@
+"use strict";
+
 module.exports = function ( grunt )
 {
-    "use strict";
-
-    grunt.registerTask( "envRobotsIndex", "Set robots.txt to index the site", function ()
-    {
-        grunt.config( "useRobotsIndex", true );
-    } );
-
-    grunt.registerTask( "envRobotsNoIndex", "Set robots.txt to NOT index the site", function ()
-    {
-        grunt.config( "useRobotsIndex", false );
-    } );
+    var env = grunt.config( "envName" );
+    var host = grunt.config( "env" ).host;
 
     grunt.registerTask( "robots", "Write a robots.txt", function ()
     {
-        if( grunt.config( "useRobotsIndex" ) && grunt.config( "Host" ) )
-        {
-            grunt.log.write( "Writing robots.txt for indexing" );
-            grunt.file.write( "build/robots.txt",
-                "User-agent: *\n"
-                + "Sitemap: " + grunt.config( "Host" ) + "/build/sitemap.txt\n" );
-        }
-        else
+        if( env !== "prod" || !host  )
         {
             grunt.log.write( "Writing robots.txt for NO indexing" );
             grunt.file.write( "build/robots.txt",
                 "User-agent: *\n"
                 + "disallow: /\n" );
+            return;
         }
+
+        // TODO: can we determine if there is a sitemap file or not?
+        grunt.log.write( "Writing robots.txt for indexing" );
+        grunt.file.write( "build/robots.txt",
+            "User-agent: *\n"
+            + "Sitemap: " + host + "/sitemap.txt\n" );
     } );
 };

@@ -1,27 +1,32 @@
-module.exports = {
-    options: {
-        accessKeyId: "<%= aws.accessKeyId %>",
-        secretAccessKey: "<%= aws.secretAccessKey %>",
-        bucket: "<%= aws.s3Bucket %>"
-    },
-    build: {
-        options : {
-            headers: {
-                CacheControl: 31536000
-            }
+"use strict";
+
+module.exports = function ( grunt )
+{
+    return {
+        options: {
+            accessKeyId: grunt.option( "aws-access-key-id" ),
+            secretAccessKey: grunt.option( "aws-secret-access-key" ),
+            bucket: grunt.config( "env" )[ "aws.s3Bucket" ]
         },
-        cwd: "build/",
-        src: [ "**", "!**.html" ],
-        dest: "build-<%= version %>/build/"
-    },
-    index: {
-        cwd: "build/",
-        src: "**.html",
-        dest: "build-<%= version %>/build/"
-    },
-    robots: {
-        cwd: "build/",
-        src: "robots.txt",
-        dest: "build-<%= version %>/"
-    }
+        build: {
+            options : {
+                headers: {
+                    CacheControl: 31536000
+                }
+            },
+            cwd: "build/",
+            src: [ "**", "!**.html" ],
+            dest: "build-<%= version %>/"
+        },
+        index: {
+            cwd: "build/",
+            src: "**.html",
+            dest: "build-<%= version %>/"
+        },
+        robots: {
+            cwd: "build/",
+            src: "robots.txt",
+            dest: "build-<%= version %>/"
+        }
+    };
 };

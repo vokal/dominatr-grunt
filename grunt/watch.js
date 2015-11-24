@@ -1,60 +1,36 @@
+"use strict";
+
 module.exports = {
-    options:
-    {
-        atBegin: true,
-        livereload: true,
+    options: {
         event: [ "changed", "added", "deleted" ]
     },
-    angular:
-    {
-        files: "<%= concat.angular.src %>",
-        tasks: [ "concat:angular" ]
+    index: {
+        files: "<%= copy.index.src %>",
+        tasks: [ "copy:index" ]
     },
-    components:
-    {
-        files: "<%= concat.components.src %>",
-        tasks: [ "concat:components" ]
+    js: {
+        files: "<%= jshint.dev.src %>",
+        tasks: [ "newer:jshint:dev", "browserify:build" ]
     },
-    scripts:
-    {
-        files: "<%= concat.scripts.src %>",
-        tasks: [ "envLocal", "newer:jshint:dev", "concat:scripts", "replace" ]
-    },
-    styles:
-    {
-        files: "source/modules/*/styles/*.*",
-        tasks: [ "less", "replace", "postcss" ]
-    },
-    index:
-    {
-        files: "source/modules/_app/templates/index.html",
-        tasks: [ "envLocal", "includeSource", "ejs", "replace" ]
-    },
-    templates:
-    {
+    templates: {
         options: { cwd: "<%= ngtemplates.build.cwd %>" },
         files: "<%= ngtemplates.build.src %>",
-        tasks: [ "envLocal", "ngtemplates", "replace" ]
+        // TODO: cut browserify out of this?
+        tasks: [ "ngtemplates", "browserify:build" ]
     },
-    fonts:
-    {
-        files: [
-            "source/fonts/**/*.*"
-        ],
-        tasks: [ "copy:fonts" ]
+    styles: {
+        files: "source/modules/*/styles/*.*",
+        tasks: [ "less" ]
     },
-    images:
-    {
-        files: [
-            "source/images/**/*.*"
-        ],
-        tasks: [ "copy:images" ]
+    media: {
+        options: { cwd: "<%= copy.build.cwd %>" },
+        files: "<%= copy.build.src %>",
+        tasks: [ "newer:copy:build" ]
     },
-    favicon:
-    {
-        files: [
-            "source/favicon/**/*.*"
-        ],
-        tasks: [ "copy:favicon" ]
+    livereload: {
+        options: {
+            "livereload": true
+        },
+        files: [ "build/**/*.*" ]
     }
 };

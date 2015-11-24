@@ -1,29 +1,17 @@
-module.exports = {
-    project:
-    {
-        options: {
-            mangle: {},
-            compress: {},
-            sourceMap: false
-        },
-        files:
-        {
-            "build/project.js": "build/project.js",
-            "build/templates.js": "build/templates.js"
+"use strict";
+
+module.exports = function ( grunt )
+{
+    return {
+        package: {
+            options: {
+                mangle: [ "staging", "prod" ].indexOf( grunt.config( "envName" ) ) >= 0,
+                compress: true,
+                sourceMap: false
+            },
+            files: {
+                "build/dist.js": "build/dist.js"
+            }
         }
-    },
-    libraries:
-    {
-        options:
-        {
-            mangle: false,
-            compress: {},
-            sourceMap: false
-        },
-        files:
-        {
-            "build/angular.js": "build/angular.js",
-            "build/components.js": "build/components.js"
-        }
-    }
+    };
 };

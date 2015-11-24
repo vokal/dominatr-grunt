@@ -1,15 +1,16 @@
+"use strict";
+
 module.exports = {
     options: {
         plugins: [
              { cleanupIDs: false }
         ]
     },
-    build: {
+    package: {
         files: [ {
           expand: true,
-          cwd: "source/images/",
-          src: [ "**/*.svg" ],
-          dest: "build/images/"
+          cwd: "build/images/",
+          src: [ "**/*.svg" ]
         } ]
     }
 };

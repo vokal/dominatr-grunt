@@ -2,6 +2,10 @@
 
 ## Changelog
 
+#### 6.0.0 [Breaking Changes] Drop bower for browserify; massive refactor
+
+// TODO: don't leave this blank
+
 #### 5.0.4 Delete broken releases, move CHANGELOG
 
 Delete releases `5.0.2` and `5.0.3` due to a dependency breaking change. Updates for `autoprefixer` will be included in a `6.0.0` release. Also moved CHANGELOG out of `README.md` and into own file.

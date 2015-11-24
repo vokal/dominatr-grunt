@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
     src: "coverage/**/*.json",
     options: {
