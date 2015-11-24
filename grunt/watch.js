@@ -8,15 +8,22 @@ module.exports = {
         files: "<%= copy.index.src %>",
         tasks: [ "copy:index" ]
     },
-    js: {
+    browserify: {
+        files: [
+            "build/templates.js",
+            "source/modules/**/*.js",
+            "!source/modules/*/tests/**/*.*"
+        ],
+        tasks: [ "browserify:build" ]
+    },
+    jshint: {
         files: "<%= jshint.dev.src %>",
-        tasks: [ "newer:jshint:dev", "browserify:build" ]
+        tasks: [ "newer:jshint:dev" ]
     },
     templates: {
         options: { cwd: "<%= ngtemplates.build.cwd %>" },
         files: "<%= ngtemplates.build.src %>",
-        // TODO: cut browserify out of this?
-        tasks: [ "ngtemplates", "browserify:build" ]
+        tasks: [ "ngtemplates" ]
     },
     styles: {
         files: "source/modules/*/styles/*.*",

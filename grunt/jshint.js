@@ -9,9 +9,9 @@ module.exports = function ()
                 jshintrc: ".jshintrc"
             },
             src: [
-                "source/modules/*/*.js",
-                "source/modules/*/*/*.js",
-                "!source/modules/*/tests/**/*.*"
+                "source/modules/**/*.js",
+                "tests/**/*.js",
+                "grunt/*.js"
             ]
         },
         deploy: {
