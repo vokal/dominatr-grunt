@@ -8,6 +8,7 @@ module.exports = {
         src: [
             "fonts/**/*.*",
             "images/**/*.*",
+            "!images/svg-sprite/**/*.*",
             "favicon/**/*.*",
             "audio/**/*.*",
             "manifest.json",

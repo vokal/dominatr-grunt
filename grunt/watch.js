@@ -26,13 +26,21 @@ module.exports = {
         tasks: [ "ngtemplates" ]
     },
     styles: {
-        files: "source/modules/*/styles/*.*",
+        files: [
+            "source/modules/*/styles/*.*",
+            "build/svg-sprite/css/sprite.less"
+        ],
         tasks: [ "less" ]
     },
     media: {
         options: { cwd: "<%= copy.build.cwd %>" },
         files: "<%= copy.build.src %>",
         tasks: [ "newer:copy:build" ]
+    },
+    sprite: {
+        options: { cwd: "<%= svg_sprite.use.cwd %>" },
+        files: "<%= svg_sprite.use.src %>",
+        tasks: [ "svg_sprite" ]
     },
     livereload: {
         options: {
