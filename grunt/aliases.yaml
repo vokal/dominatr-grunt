@@ -3,6 +3,7 @@ default:
 
 build:
   - clean:build
+  - truecolors_less
   - less
   - ngtemplates
   - copy
