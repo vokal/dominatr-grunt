@@ -38,6 +38,7 @@ package:
   - uglify
   - postcss
   - svgmin
+  - imagemin
   - filerev
   - filerev_replace
   - robots
