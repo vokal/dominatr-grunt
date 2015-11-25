@@ -21,6 +21,12 @@ module.exports =  function ( grunt )
                 "modules/*/templates/*.html",
                 "!modules/_app/templates/index.html"
             ],
+            filter: function ( filepath )
+            {
+                return /mocks/.test( filepath ) ?
+                    ( grunt.config( "envName" ) === "local" || grunt.option( "mocks" ) ) :
+                    true;
+            },
             dest: "build/templates.js",
             cwd: "source"
         }
