@@ -23,7 +23,7 @@ module.exports =  function ( grunt )
             ],
             filter: function ( filepath )
             {
-                return /mocks/.test( filepath ) ?
+                return /mock/.test( filepath ) ?
                     ( grunt.config( "envName" ) === "local" || grunt.option( "mocks" ) ) :
                     true;
             },
