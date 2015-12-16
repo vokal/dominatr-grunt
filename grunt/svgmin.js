@@ -10,6 +10,7 @@ module.exports = {
         files: [ {
           expand: true,
           cwd: "build/images/",
+          dest: "build/images/",
           src: [ "**/*.svg" ]
         } ]
     }
