@@ -26,7 +26,7 @@ module.exports = function ( grunt )
     } )( grunt.config( "env" ) );
 
     var transforms = [
-        [ "babelify", { presets: [ "es2015" ] } ],
+        [ "babelify", { presets: [ require( "babel-preset-es2015" ) ] } ],
         [ "browserify-replace", {
             replace: replacements
         } ]
