@@ -41,13 +41,13 @@ Configuration of this plugin relies heavily on 3 files:
       var path = require( "path" );
       require( "load-grunt-config" )( grunt, {
           data: {
-              version: grunt.option( "gitver" ) || Date.now(), // for deployment cache-busting
-              configPath: path.join( process.cwd(), "node_modules", "dominatr-grunt", "grunt" ),
-              overridePath: path.join( process.cwd(), "grunt" ),
-              mergeFunction: function ( obj, ext )
-              {
-                  return require( "config-extend" )( obj, ext );
-              }
+              version: grunt.option( "gitver" ) || Date.now() // for deployment cache-busting
+          },
+          configPath: path.join( process.cwd(), "node_modules", "dominatr-grunt", "grunt" ),
+          overridePath: path.join( process.cwd(), "grunt" ),
+          mergeFunction: function ( obj, ext )
+          {
+              return require( "config-extend" )( obj, ext );
           }
       } );
   };
