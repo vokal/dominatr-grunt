@@ -149,7 +149,7 @@ There are a few important files to take note of in our `/source` directory.
 - #### `/modules/index.js`
   This is the main `.js` file and should be used to require any dependencies. Anything that needs to be set globally should be attached here.
 
-  All module folders (except `mocks`, see below) should be `require`d. At the end of the file, the `ngtemplates` output must also be required.
+  All module folders (except `mocks`, see below) should be included with `require`. At the end of the file, the `ngtemplates` output must also be required.
   ```js
   "use strict";
 
@@ -195,7 +195,7 @@ There are a few important files to take note of in our `/source` directory.
 - #### `/modules/mocks`
   The `mocks` directory is special in that it is excluded in all environments except `local`. It is also excluded from code coverage reports since it is code not being included in a deployment.
 
-  While this is not the appropriate place to discuss _how_ to use mocks, know that a `/modules/mocks/index.js` file is included by default when running locally and any support files should be `require`d from that point.
+  While this is not the appropriate place to discuss _how_ to use mocks, know that a `/modules/mocks/index.js` file is included by default when running locally and any support files should be included with `require` from that point.
 
 - #### Other Script Files
   All other subfolder script files should include a `module.exports` value so that it can be required by the module `index.js` or alternate declaration file. For most angular singletons, the format will look similar to the following:
