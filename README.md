@@ -3,7 +3,7 @@
 > Build all the things!
 
 ## Getting Started
-This plugin requires Grunt `>=0.4.0` and a lengthy list of other `peerDependencies`.
+This plugin requires Grunt `>=0.4.0` and a lengthy list of other dependencies. Make sure to add `"dominatr-grunt": "github:vokal/dominatr-grunt#<commitHash>"` to your package `dependencies` and paste the `peerDependencies` from our `package.json` file [here](https://github.com/vokal/dominatr-grunt/blob/master/package.json) to your local `devDependencies`.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
