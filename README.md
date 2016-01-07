@@ -255,9 +255,9 @@ This list aims to be a reference and may not cover every detail of our implement
   Method of communicating with Browserstack for testing. Only utilized when running `grunt teststack` or `npm run teststack`.
 
 - #### notification
-  A custom task to send an email using AWS after a deployment completes. This is not included by default in the `deploy` alias, but should be included as an additional task in the deployment task like `grunt deploy notification --env=staging --aws-access-key-id=.. --aws-secret-access-key=...`.
+  A custom task to send an email using AWS SES after a deployment completes. This is not included by default in the `deploy` alias, but should be included as an additional task in the deployment task like `grunt deploy notification --env=staging --aws-access-key-id=.. --aws-secret-access-key=...`.
 
-  The notification task requires the AWS access key and secret key to work, as well as a host url set in the `env.json` file. This should point to the deployed url so it can be linked in the email correctly. The email addresses should also be included in the environments file as `notification.emailTo` and `notification.emailFrom`. 
+  The notification task requires the AWS access key and secret key to work, as well as a host url set in the `env.json` file. This should point to the deployed url so it can be linked in the email correctly. The email addresses should also be included in the environments file as `notification.emailTo` and `notification.emailFrom`.
 
 - #### ngtemplates
   Compiles a `templates.js` file in the build directory with all of the `modules/*/templates/*.html` files for caching in angular. When referencing these files in an angular app, the file path should be similar to `modules/<modulename>/templates/<filename>.html`.
