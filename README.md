@@ -117,7 +117,6 @@ Our build process is primarily designed to work with [angular](https://angularjs
 Here are the basic required root files for dominatr-grunt to function.
 
 ```
-.gitignore
 .jshintrc
 env.json
 Gruntfile.js
@@ -224,9 +223,9 @@ This list aims to be a reference and may not cover every detail of our implement
   - `browserify:build` generates a `dist.js` file in the `build` directory
   - `browserify:test` includes istanbul code coverage and generates the dist file in the `.instrumented` folder
 
-  Both tasks include mocks when in the `local` environment. If you wish to change the root file used for mocks from `modules/mocks/index.html`, you can provide a flag like `--mocks=other.js` and it will look for `modules/mocks/other.js` instead.
+  Both tasks include mocks when in the `local` environment. If you wish to change the root file used for mocks from `modules/mocks/index.js`, you can provide a flag like `--mocks=other.js` and it will look for `modules/mocks/other.js` instead.
 
-  String replacement is also handled in the browserify tasks. The selected environment object from `env.json` file is read in and key-value replaced in files. To prevent conflict with angular, keys should be wrapped like `<< keyName >>`. Objects are reduced to strings separated as dot notation, so both `"obj.someKey"` and `"obj": { "someKey": ... }` both replace `<< obj.someKey >>`.
+  String replacement is also handled in the browserify tasks. The selected environment object from `env.json` file is read in and key-value replaced in files. To prevent conflict with angular, keys should be wrapped like `<< keyName >>`. Objects are reduced to strings separated as dot notation, so both `"obj.someKey"` and `"obj": { "someKey": ... }` replace `<< obj.someKey >>`.
 
 - #### clean
   Three subtasks, `build`, `test`, and `coverage`, to delete their respective directories.
@@ -295,19 +294,17 @@ This list aims to be a reference and may not cover every detail of our implement
 
 The following group tasks are available as `grunt <taskname>` for direct use:
 
-- `build`
-- `test`
-- `teststack`
-- `deploy`
-
-### `build`
+#### `build`
 Runs associated tasks to generate a working build folder, including at the least `clean:build`, `less`, `copy`, and `browserify:build`. It is included when running `npm start`.
 
-### `test`
+#### `test`
 Runs protractor testing locally with `protractor_coverage` and reporting. Generates a temporary `.instrumented` folder to hold test files and deletes it on completion. This also runs `jsint`. The configuration file for testing is located at `/tests/config/protractor-config.js`.
 
-### `teststack`
+#### `teststack`
 Only different from `test` in that it uses [Browserstack](https://www.browserstack.com) instead of a local browser. Configuration for this is in `/tests/config/protractor-config-browserstack.js`. An authorization key for Browserstack must be in the environment variable `BROWSERSTACK_KEY` for this to work.
+
+#### `deploy`
+Clean build and packaging for output, an `--env` flag should be specified when running this task and requires including AWS credentials if using s3 and cloudfront. The full command would look similar to `grunt deploy --env=staging --aws-access-key-id=<aws-access-key> --aws-secret-access-key=<lengthy-aws-access-token>`
 
 Three additional aliases are created for internal shortcuts but should not be used except for debugging situations:
 - `pretest`
@@ -333,7 +330,12 @@ Replacements are done at the subtask level, so the file above would not destroy 
 
 ## Other Bits
 
-While not required, we suggest adding the following list to your `.gitignore` file. These should be self-explanatory if you are familiar with github.
-- `/build`
-- `/coverage`
-- `/.instrumented`
+While not required, we suggest adding the following lines to your `.gitignore` file.
+
+```
+/build
+/coverage
+/.instrumented
+```
+
+The `/coverage` and `/.instrumented` directories are used during testing and erased with each run. Files in these folders are not intended to be committed. The `/build` folder contents changes with the current environment settings and is not fit for version control.
