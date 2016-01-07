@@ -59,11 +59,7 @@ module.exports = function ( grunt )
             options: {
                 transform: [
                     [ "browserify-istanbul", {
-                        // TODO: clean up these ignores
                         ignore: [
-                            "**/node_modules/**",
-                            "**/test/**",
-                            "**/tests/**",
                             "**/templates.js",
                             "**/*mock-*.js",
                             "**/source/modules/mocks/**" ]
