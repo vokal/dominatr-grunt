@@ -90,20 +90,29 @@ Configuration of this plugin relies heavily on 3 files:
     "dev": {
       "apiroot": "https://api-dev.yourapp.com",
       "libraryKey": "third-party-library-key",
+      "host": "https://dev.yourapp.com",
       "aws.s3Bucket": "yourapp-dev",
-      "aws.distributionId": "ABCDEFGHIJKLMN"
+      "aws.distributionId": "ABCDEFGHIJKLMN",
+      "notification.emailTo": "yourEmail@email.com",
+      "notification.emailFrom": "noreply@yourapp.com"
     },
     "staging": {
       "apiroot": "https://api-staging.yourapp.com",
       "libraryKey": "third-party-staging-key",
+      "host": "https://staging.yourapp.com",
       "aws.s3Bucket": "yourapp-staging",
-      "aws.distributionId": "OPQRSTUVWXYZAB"
+      "aws.distributionId": "OPQRSTUVWXYZAB",
+      "notification.emailTo": "yourTeam@email.com",
+      "notification.emailFrom": "noreply@yourapp.com"
     },
     "prod": {
       "apiroot": "https://api.yourapp.com",
       "libraryKey": "third-party-production-key",
+      "host": "https://www.yourapp.com",
       "aws.s3Bucket": "yourapp-prod",
-      "aws.distributionId": "JKLMNOPQRSTUVW"
+      "aws.distributionId": "JKLMNOPQRSTUVW",
+      "notification.emailTo": "yourTeam@email.com",
+      "notification.emailFrom": "noreply@yourapp.com"
     }
   }
   ```
@@ -255,9 +264,11 @@ This list aims to be a reference and may not cover every detail of our implement
   Method of communicating with Browserstack for testing. Only utilized when running `grunt teststack` or `npm run teststack`.
 
 - #### notification
-  A custom task to send an email using AWS SES after a deployment completes. This is not included by default in the `deploy` alias, but should be included as an additional task in the deployment task like `grunt deploy notification --env=staging --aws-access-key-id=.. --aws-secret-access-key=...`.
+  A custom task to send an email using AWS SES after a deployment completes. This is included at the end of the `deploy` alias.
 
-  The notification task requires the AWS access key and secret key to work, as well as a host url set in the `env.json` file. This should point to the deployed url so it can be linked in the email correctly. The email addresses should also be included in the environments file as `notification.emailTo` and `notification.emailFrom`.
+  The notification task requires the AWS access key and secret key to work, as well as a host url set in the `env.json` file. This should point to the deployed url so it can be linked in the email correctly. Email addresses should be included in the environments file as `notification.emailTo` and `notification.emailFrom` and the `emailFrom` must be [SES Verified](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html).
+
+  Because this task is at the end of a `deploy`, it can fail without preventing deployment. This will show as a failure in the `terminal` and CI services but the files have been uploaded to AWS.
 
 - #### ngtemplates
   Compiles a `templates.js` file in the build directory with all of the `modules/*/templates/*.html` files for caching in angular. When referencing these files in an angular app, the file path should be similar to `modules/<modulename>/templates/<filename>.html`.

@@ -48,3 +48,4 @@ deploy:
   - package
   - s3
   - cloudfront
+  - notification
