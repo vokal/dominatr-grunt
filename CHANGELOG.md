@@ -2,6 +2,48 @@
 
 ## Changelog
 
+#### 6.0.0 [Breaking Changes] Drop bower for browserify; massive refactor
+
+A quick reference to the big changes for v6:
+- transition to Browserify from Bower
+- drop support for less than Node v4
+- drop `grunt/env.js` for `/env.json` and better environment support
+- switch `grunt-replace` wrap from `{{ }}` to `<< >>`
+- reorganize `package.json` and grunt alias scripts
+- run tests on separate instrumented folder and port
+- separate deployment tasks (`uglify`, `svgmin`, `filerev`) from main `build`
+- remove Karma unit testing from default `npm test`, available as an option ( TODO )
+- deployment changes that affect AWS settings
+
+To upgrade:
+
+- point to v6.0.x of `dominatr-grunt`
+- update `package.json` devDependencies and scripts to v6 of `dominatr`
+- move all bower install components to `package.json` dependencies
+- replace these files with their `dominatr` v6 counterpart:
+    - gruntfile.js
+    - run-build.sh
+    - .drone.yml
+    - .gitignore
+- create `env.json` in root directory and move `grunt/env.js` values to it
+- move `grunt-replace` values to `env.json`, change all replace references to `<< >>` wrapping
+- browserify module structure, see `dominatr` for example structure
+- update `index.html` to use single `dist.js` output
+- link third party library css files in `main.less`
+- remove `/build` root from all resource references (html, css, fonts, js)
+- delete unnecessary files:
+    - bower.json
+    - .bowerrc
+    - source/components/
+    - grunt/
+    - server.js
+- `npm install`
+- `npm start`
+- make changes on cloudfront distributions to reference `/index.html` instead of `/build/index.html`
+    - General > Default Root Object
+    - Error Pages > 403 > Response Page Path
+
+
 #### 5.0.4 Delete broken releases, move CHANGELOG
 
 Delete releases `5.0.2` and `5.0.3` due to a dependency breaking change. Updates for `autoprefixer` will be included in a `6.0.0` release. Also moved CHANGELOG out of `README.md` and into own file.

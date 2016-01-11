@@ -23,7 +23,9 @@ module.exports =  function ( grunt )
             ],
             filter: function ( filepath )
             {
-                return /mocks/.test( filepath ) ? grunt.option( "mocks" ) : true;
+                return /mock/.test( filepath ) ?
+                    ( grunt.config( "envName" ) === "local" || grunt.option( "mocks" ) ) :
+                    true;
             },
             dest: "build/templates.js",
             cwd: "source"

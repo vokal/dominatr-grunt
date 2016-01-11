@@ -19,7 +19,7 @@ module.exports = {
                 css: {
                     sprite: "sprite.svg",
                     render: {
-                        css: true
+                        less: true
                     }
                 }
             }
@@ -33,9 +33,9 @@ module.exports = {
 
         options: {
             mode: {
-                inline: true,
                 symbol: {
-                    sprite: "sprite.svg",
+                    inline: true,
+                    sprite: "sprite.svg"
                 }
             }
         }

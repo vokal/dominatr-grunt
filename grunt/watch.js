@@ -1,60 +1,51 @@
+"use strict";
+
 module.exports = {
-    options:
-    {
-        atBegin: true,
-        livereload: true,
+    options: {
         event: [ "changed", "added", "deleted" ]
     },
-    angular:
-    {
-        files: "<%= concat.angular.src %>",
-        tasks: [ "concat:angular" ]
+    index: {
+        files: "<%= copy.index.src %>",
+        tasks: [ "copy:index" ]
     },
-    components:
-    {
-        files: "<%= concat.components.src %>",
-        tasks: [ "concat:components" ]
+    browserify: {
+        files: [
+            "build/templates.js",
+            "source/modules/**/*.js",
+            "!source/modules/*/tests/**/*.*"
+        ],
+        tasks: [ "browserify:build" ]
     },
-    scripts:
-    {
-        files: "<%= concat.scripts.src %>",
-        tasks: [ "envLocal", "newer:jshint:dev", "concat:scripts", "replace" ]
+    jshint: {
+        files: "<%= jshint.dev.src %>",
+        tasks: [ "newer:jshint:dev" ]
     },
-    styles:
-    {
-        files: "source/modules/*/styles/*.*",
-        tasks: [ "less", "replace", "postcss" ]
-    },
-    index:
-    {
-        files: "source/modules/_app/templates/index.html",
-        tasks: [ "envLocal", "includeSource", "ejs", "replace" ]
-    },
-    templates:
-    {
+    templates: {
         options: { cwd: "<%= ngtemplates.build.cwd %>" },
         files: "<%= ngtemplates.build.src %>",
-        tasks: [ "envLocal", "ngtemplates", "replace" ]
+        tasks: [ "ngtemplates" ]
     },
-    fonts:
-    {
+    styles: {
         files: [
-            "source/fonts/**/*.*"
+            "source/modules/*/styles/*.*",
+            "build/svg-sprite/css/sprite.less"
         ],
-        tasks: [ "copy:fonts" ]
+        tasks: [ "less" ]
     },
-    images:
-    {
-        files: [
-            "source/images/**/*.*"
-        ],
-        tasks: [ "copy:images" ]
+    media: {
+        options: { cwd: "<%= copy.build.cwd %>" },
+        files: "<%= copy.build.src %>",
+        tasks: [ "newer:copy:build" ]
     },
-    favicon:
-    {
-        files: [
-            "source/favicon/**/*.*"
-        ],
-        tasks: [ "copy:favicon" ]
+    sprite: {
+        options: { cwd: "<%= svg_sprite.use.cwd %>" },
+        files: "<%= svg_sprite.use.src %>",
+        tasks: [ "svg_sprite" ]
+    },
+    livereload: {
+        options: {
+            "livereload": true
+        },
+        files: [ "build/**/*.*" ]
     }
 };

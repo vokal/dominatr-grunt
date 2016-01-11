@@ -1,6 +1,8 @@
+"use strict";
+
 module.exports = {
     options: {
-        assets_root: ""
+        assets_root: "build"
     },
     compiled_assets: {
         src: "build/**/*.{js,css}"
