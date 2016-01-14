@@ -52,6 +52,9 @@ module.exports = function ( grunt )
             }
         },
         build: {
+            options: {
+                watch: true
+            },
             src: files,
             dest: "build/dist.js"
         },

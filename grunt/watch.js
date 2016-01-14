@@ -8,14 +8,6 @@ module.exports = {
         files: "<%= copy.index.src %>",
         tasks: [ "copy:index" ]
     },
-    browserify: {
-        files: [
-            "build/templates.js",
-            "source/modules/**/*.js",
-            "!source/modules/*/tests/**/*.*"
-        ],
-        tasks: [ "browserify:build" ]
-    },
     jshint: {
         files: "<%= jshint.dev.src %>",
         tasks: [ "newer:jshint:dev" ]
