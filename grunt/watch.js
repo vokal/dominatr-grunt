@@ -2,7 +2,8 @@
 
 module.exports = {
     options: {
-        event: [ "changed", "added", "deleted" ]
+        event: [ "changed", "added", "deleted" ],
+        spawn: false
     },
     index: {
         files: "<%= copy.index.src %>",
@@ -35,9 +36,7 @@ module.exports = {
         tasks: [ "svg_sprite" ]
     },
     livereload: {
-        options: {
-            "livereload": true
-        },
+        options: { livereload: true },
         files: [ "build/**/*.*" ]
     }
 };
