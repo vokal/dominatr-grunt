@@ -4,13 +4,14 @@ var AWS = require( "aws-sdk" );
 
 module.exports = function ( grunt )
 {
+    var envConfig = grunt.config( "env" );
     grunt.registerTask( "notification", "Notify an email that a deployment is going out", function ()
     {
         var done = this.async();
 
-        var emailTo = grunt.config( "env" )[ "notification.emailTo" ];
-        var emailFrom = grunt.config( "env" )[ "notification.emailFrom" ];
-        var host = grunt.config( "env" ).host;
+        var emailTo = envConfig[ "notification.emailTo" ];
+        var emailFrom = envConfig[ "notification.emailFrom" ];
+        var host = envConfig.host;
         if( !emailTo || !emailFrom || !host )
         {
             done();
@@ -23,7 +24,7 @@ module.exports = function ( grunt )
             new AWS.Config( {
                 accessKeyId: grunt.option( "aws-access-key-id" ),
                 secretAccessKey: grunt.option( "aws-secret-access-key" ),
-                region: grunt.config( "env" )[ "aws.region" ] || "us-east-1"
+                region: envConfig[ "aws.region" ] || "us-east-1"
             } )
         );
 
