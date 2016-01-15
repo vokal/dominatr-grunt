@@ -2,19 +2,12 @@
 
 module.exports = {
     options: {
-        event: [ "changed", "added", "deleted" ]
+        event: [ "changed", "added", "deleted" ],
+        spawn: false
     },
     index: {
         files: "<%= copy.index.src %>",
         tasks: [ "copy:index" ]
-    },
-    browserify: {
-        files: [
-            "build/templates.js",
-            "source/modules/**/*.js",
-            "!source/modules/*/tests/**/*.*"
-        ],
-        tasks: [ "browserify:build" ]
     },
     jshint: {
         files: "<%= jshint.dev.src %>",
@@ -43,9 +36,7 @@ module.exports = {
         tasks: [ "svg_sprite" ]
     },
     livereload: {
-        options: {
-            "livereload": true
-        },
+        options: { livereload: true },
         files: [ "build/**/*.*" ]
     }
 };
