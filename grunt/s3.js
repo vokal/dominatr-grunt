@@ -2,6 +2,8 @@
 
 module.exports = function ( grunt )
 {
+    var version = grunt.config( "version" );
+
     return {
         options: {
             accessKeyId: grunt.option( "aws-access-key-id" ),
@@ -16,17 +18,17 @@ module.exports = function ( grunt )
             },
             cwd: "build/",
             src: [ "**", "!**.html" ],
-            dest: "build-<%= version %>/"
+            dest: "build-" + version + "/"
         },
         index: {
             cwd: "build/",
             src: "**.html",
-            dest: "build-<%= version %>/"
+            dest: "build-" + version + "/"
         },
         robots: {
             cwd: "build/",
             src: "robots.txt",
-            dest: "build-<%= version %>/"
+            dest: "build-" + version + "/"
         }
     };
 };
