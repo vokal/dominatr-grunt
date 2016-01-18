@@ -5,6 +5,9 @@ var AWS = require( "aws-sdk" );
 module.exports = function ( grunt )
 {
     var envConfig = grunt.config( "env" );
+    var deployVersion = grunt.config( "version" );
+    var pkgVersion = grunt.file.readJSON( "package.json" ).version || "";
+
     grunt.registerTask( "notification", "Notify an email that a deployment is going out", function ()
     {
         var done = this.async();
@@ -18,8 +21,6 @@ module.exports = function ( grunt )
             return;
         }
 
-        var pkgVersion = grunt.config( "pkg" ).version || "";
-        var deployVersion = grunt.config( "version" );
         var ses = new AWS.SES(
             new AWS.Config( {
                 accessKeyId: grunt.option( "aws-access-key-id" ),
@@ -30,7 +31,7 @@ module.exports = function ( grunt )
 
         var options = {
             Destination: {
-                ToAddresses: emailTo
+                ToAddresses: typeof emailTo === "string" ? [ emailTo ] : emailTo
             },
             Message: {
                 Body: {
