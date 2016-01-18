@@ -266,7 +266,7 @@ This list aims to be a reference and may not cover every detail of our implement
 
   The notification task requires the AWS access key and secret key to work, as well as a host url set in the `env.json` file. This should point to the deployed url so it can be linked in the email correctly. Email addresses should be included in the environments file as `notification.emailTo` and `notification.emailFrom`. `emailTo` can be either a string or an array and `emailFrom` must be [SES Verified](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html).
 
-  Because this task is at the end of a `deploy`, it can fail without preventing deployment. This will show as a failure in the `terminal` and CI services but the files have been uploaded to AWS.
+  Because this task is at the end of a `deploy`, it can fail without preventing deployment. This will show as a failure in the `terminal` and CI services but the files have been uploaded to AWS. **IMPORTANT**: The notification task will fail when AWS SES is in sandbox mode and any of the recipient emails are not verified.
 
 - #### ngtemplates
   Compiles a `templates.js` file in the build directory with all of the `modules/*/templates/*.html` files for caching in angular. When referencing these files in an angular app, the file path should be similar to `modules/<modulename>/templates/<filename>.html`.
