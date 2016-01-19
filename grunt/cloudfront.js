@@ -11,7 +11,7 @@ module.exports = function ( grunt )
         },
         build: {
             options: {
-                originPath: "/build-<%= version %>"
+                originPath: "/build-" + grunt.config( "version" )
             }
         }
     };

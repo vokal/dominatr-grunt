@@ -9,6 +9,7 @@ var rewriteMiddleware = rewrite( [
 module.exports = {
     local: {
         options: {
+            hostname: "localhost",
             port: 3000,
             base: "build",
             livereload: true,
@@ -23,6 +24,7 @@ module.exports = {
     },
     test: {
         options: {
+            hostname: "localhost",
             port: 9000,
             base: ".instrumented",
             middleware: function ()
