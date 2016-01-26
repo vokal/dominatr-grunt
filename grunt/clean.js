@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-    build: [ "build" ],
+    build: [ "build/**/*.*" ],
     test: [ ".instrumented" ],
     coverage: [ "coverage" ]
 };
