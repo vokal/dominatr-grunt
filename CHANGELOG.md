@@ -2,6 +2,16 @@
 
 ## Changelog
 
+#### 6.1.0 Add Slack channel notifications
+
+This is not included in deployment by default in this release, so to use, after deployment runs:
+
+`grunt notification_slack --env=dev --slacktoken=$SLACK_TOKEN`
+
+In the above replace `dev` with whatever the environment is and set an environment variable with a Slack API Token which you can generate from [the bottom of this page](https://api.slack.com/web).
+
+Setting "notification.slackChannel" for each environment in `env.json` is also required.
+
 #### 6.0.0 [Breaking Changes] Drop bower for browserify; massive refactor
 
 A quick reference to the big changes for v6:
