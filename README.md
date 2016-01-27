@@ -58,7 +58,7 @@ Configuration of this plugin relies heavily on 3 files:
 
   ```json
   "scripts": {
-    "install": "node ./node_modules/.bin/webdriver-manager update",
+    "install": "node ./node_modules/protractor/bin/webdriver-manager update",
     "server": "grunt connect:local:keepalive",
     "start": "grunt build connect:local watch",
     "test": "grunt test",
