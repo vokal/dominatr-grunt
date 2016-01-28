@@ -29,14 +29,13 @@ Configuration of this plugin relies heavily on 3 files:
   ```js
   module.exports = function ( grunt )
   {
-      "use strict";
-
       // for environment configuration
       var env = grunt.option( "env" ) || "local";
       grunt.initConfig( {
           env: grunt.file.readJSON( "env.json" )[ env ],
           envName: env,
-          version: grunt.option( "gitver" ) || Date.now() // for deployment cache-busting
+          version: grunt.option( "gitver" ) || Date.now(), // for deployment cache-busting          
+          slackApiToken: grunt.option( "slacktoken" ) // if using slack notifications
       } );
 
       var path = require( "path" );
@@ -92,7 +91,8 @@ Configuration of this plugin relies heavily on 3 files:
       "aws.s3Bucket": "yourapp-dev",
       "aws.distributionId": "ABCDEFGHIJKLMN",
       "notification.emailTo": "yourEmail@email.com",
-      "notification.emailFrom": "noreply@yourapp.com"
+      "notification.emailFrom": "noreply@yourapp.com",
+      "notification.slackChannel": "channelname"
     },
     "staging": {
       "apiroot": "https://api-staging.yourapp.com",
@@ -101,7 +101,8 @@ Configuration of this plugin relies heavily on 3 files:
       "aws.s3Bucket": "yourapp-staging",
       "aws.distributionId": "OPQRSTUVWXYZAB",
       "notification.emailTo": [ "yourTeam@email.com", "yourEmail@email.com" ],
-      "notification.emailFrom": "noreply@yourapp.com"
+      "notification.emailFrom": "noreply@yourapp.com",
+      "notification.slackChannel": "channelname"
     },
     "prod": {
       "apiroot": "https://api.yourapp.com",
@@ -110,7 +111,8 @@ Configuration of this plugin relies heavily on 3 files:
       "aws.s3Bucket": "yourapp-prod",
       "aws.distributionId": "JKLMNOPQRSTUVW",
       "notification.emailTo": [ "yourTeam@email.com", "yourEmail@email.com" ],
-      "notification.emailFrom": "noreply@yourapp.com"
+      "notification.emailFrom": "noreply@yourapp.com",
+      "notification.slackChannel": "channelname"
     }
   }
   ```
