@@ -2,18 +2,30 @@
 
 > Build all the things!
 
+## Grunt Tasks for Angular Sites
+
+At [Vokal](https://www.vokal.io), we build a lot of Angular sites. dominatr-grunt encapsulates our best practices in a set of Grunt tasks that can be easily installed and updated with npm.
+
+At a high level, the tasks include:
+
+- Linting
+- Testing
+- Generating code coverage
+- Building a static site
+- Deployment to S3/CloudFront
+- Sending notifications of successful deployments
+
+For a more complete explanation of tasks see [Grunt Tasks](#grunt-tasks) or look in the `/grunt` folder of this repo.
+
+
 ## Getting Started
-This plugin requires Grunt `>=0.4.0` and a lengthy list of other dependencies. Make sure to add `"dominatr-grunt": "github:vokal/dominatr-grunt#<commitHash>"` to your package `dependencies` and paste the `peerDependencies` from our `package.json` file [here](https://github.com/vokal/dominatr-grunt/blob/master/package.json) to your local `devDependencies`.
+This plugin requires Grunt `>=0.4.0` and a lengthy list of other dependencies. To get started, and paste the `peerDependencies` from the dominatr-grunt `package.json` file [here](https://github.com/vokal/dominatr-grunt/blob/master/package.json) to your local `devDependencies`. Then  run `npm install dominatr-grunt --save-dev`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
-
-```shell
-npm install github:vokal/dominatr-grunt --save-dev
-```
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins.
 
 ## Use
 
-This build process is designed for javascript web projects and deployment through [Amazon Web Services](https://aws.amazon.com/). While not every task may be in use on a given project, these tasks were found to be useful for most of them. Unique needs for projects can arise and `load-grunt-config` provides easy configuration changes where necessary.
+This build process is designed for JavaScript web projects and deployment through [Amazon Web Services](https://aws.amazon.com/). While not every task may be in use on a given project, these tasks were found to be useful for most of them. Unique needs for projects can arise and `load-grunt-config` provides easy configuration changes where necessary.
 
 There is no guarantee that this will work on less than Node `v4` or npm `v2.14`, so please take that into consideration as necessary.
 
@@ -269,6 +281,12 @@ This list aims to be a reference and may not cover every detail of our implement
   The notification task requires the AWS access key and secret key to work, as well as a host url set in the `env.json` file. This should point to the deployed url so it can be linked in the email correctly. Email addresses should be included in the environments file as `notification.emailTo` and `notification.emailFrom`. `emailTo` can be either a string or an array and `emailFrom` must be [SES Verified](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html).
 
   Because this task is at the end of a `deploy`, it can fail without preventing deployment. This will show as a failure in the `terminal` and CI services but the files have been uploaded to AWS. **IMPORTANT**: The notification task will fail when AWS SES is in sandbox mode and any of the recipient emails are not verified.
+
+
+- #### notification_slack
+  A task to send an message to a slack channel after a deployment completes.
+
+  The task requires a target Slack channel and a host url set in the `env.json` file. The target Slack channel should be set in `notification.slackChannel`. The task also requires a Slack API token passed to grunt via a `--slacktoken=$SLACK_TOKEN` switch.
 
 - #### ngtemplates
   Compiles a `templates.js` file in the build directory with all of the `modules/*/templates/*.html` files for caching in angular. When referencing these files in an angular app, the file path should be similar to `modules/<modulename>/templates/<filename>.html`.
