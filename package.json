@@ -39,7 +39,7 @@
     "grunt-localstack": "^1.0.0",
     "grunt-newer": "^1.1.1",
     "grunt-postcss": "^0.7.1",
-    "grunt-protractor-coverage": "^0.2.15",
+    "grunt-protractor-coverage": "github:mdasberg/grunt-protractor-coverage#ef6a8fb",
     "grunt-svg-sprite": "^1.2.15",
     "grunt-svgmin": "^3.1.0",
     "grunt-truecolors-less": "1.0.x",
