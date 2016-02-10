@@ -1,7 +1,7 @@
+"use strict";
+
 module.exports = function ()
 {
-    "use strict";
-
     return {
         dev: {
             options: {
