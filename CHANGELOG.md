@@ -2,6 +2,12 @@
 
 ## Changelog
 
+
+#### 6.1.1 Bug Fixes, Dep Updates
+
+- Fixes svg_sprite task, updates peer dep as well
+- Includes package name in email and Slack notifications
+
 #### 6.1.0 Add Slack channel notifications
 
 This is not included in deployment by default in this release, so to use, after deployment runs:
