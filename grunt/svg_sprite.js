@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
     css: {
         expand: true,
@@ -33,8 +35,8 @@ module.exports = {
 
         options: {
             mode: {
+                inline: true,
                 symbol: {
-                    inline: true,
                     sprite: "sprite.svg"
                 }
             }

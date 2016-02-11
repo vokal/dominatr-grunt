@@ -6,7 +6,9 @@ module.exports = function ( grunt )
 {
     var envConfig = grunt.config( "env" );
     var deployVersion = grunt.config( "version" );
-    var pkgVersion = grunt.file.readJSON( "package.json" ).version || "";
+    var pkg = grunt.file.readJSON( "package.json" );
+    var pkgVersion = pkg.version || "";
+    var pkgName = pkg.name || "App";
 
     grunt.registerTask( "notification", "Notify an email that a deployment is going out", function ()
     {
@@ -36,13 +38,13 @@ module.exports = function ( grunt )
             Message: {
                 Body: {
                     Html: {
-                        Data: "<h1>Version " + pkgVersion + " @" + deployVersion + "</h1>"
+                        Data: "<h1>" + pkgName + " build " + pkgVersion + " @" + deployVersion + "</h1>"
                         + '<p>A new build for <a href="' + host + '">' + host + "</a> "
                         + "should be available in about 10 minutes.</p>"
                     }
                 },
                 Subject: {
-                    Data: "New build for " + host + " @" + deployVersion
+                    Data: pkgName + " build for " + host + " @" + deployVersion
                 }
             },
             Source: emailFrom

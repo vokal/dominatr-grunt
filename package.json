@@ -1,6 +1,6 @@
 {
   "name": "dominatr-grunt",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "Build all the things!",
   "scripts": {
     "test": ""
@@ -40,7 +40,7 @@
     "grunt-newer": "^1.1.1",
     "grunt-postcss": "^0.7.1",
     "grunt-protractor-coverage": "github:mdasberg/grunt-protractor-coverage#ef6a8fb",
-    "grunt-svg-sprite": "^1.2.15",
+    "grunt-svg-sprite": "github:vokal/grunt-svg-sprite.git#8200979a0e",
     "grunt-svgmin": "^3.1.0",
     "grunt-truecolors-less": "1.0.x",
     "jasmine-bail-fast": "0.0.1",
