@@ -23,7 +23,7 @@ module.exports = {
             "source/modules/*/styles/*.*",
             "build/svg-sprite/css/sprite.less"
         ],
-        tasks: [ "less" ]
+        tasks: [ "less", "postcss" ]
     },
     media: {
         options: { cwd: "<%= copy.build.cwd %>" },
