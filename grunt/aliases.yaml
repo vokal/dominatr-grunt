@@ -9,6 +9,7 @@ build:
   - copy
   - svg_sprite
   - browserify:build
+  - postcss
 
 pretest:
   - clean:test
@@ -37,7 +38,6 @@ posttest:
 
 package:
   - uglify
-  - postcss
   - svgmin
   - imagemin
   - filerev
