@@ -3,6 +3,10 @@
 ## Changelog
 
 
+#### 6.1.2 Move PostCSS to build
+
+- Local files were not functionally equivalent to deployed code which made testing problematic
+
 #### 6.1.1 Bug Fixes, Dep Updates
 
 - Fixes svg_sprite task, updates peer dep as well
