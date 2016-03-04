@@ -46,7 +46,7 @@ Configuration of this plugin relies heavily on 3 files:
       grunt.initConfig( {
           env: grunt.file.readJSON( "env.json" )[ env ],
           envName: env,
-          version: grunt.option( "gitver" ) || Date.now(), // for deployment cache-busting          
+          version: grunt.option( "gitver" ) || Date.now(), // for deployment cache-busting
           slackApiToken: grunt.option( "slacktoken" ) // if using slack notifications
       } );
 
@@ -130,6 +130,14 @@ Configuration of this plugin relies heavily on 3 files:
   ```
 
   The `npm start` task by default uses the `local` environment but can be changed by including the `env` flag in the `start` script of the `package.json` file.
+
+## Grunt Flags in NPM
+
+When running `grunt` tasks, you can pass additional arguments similar to `-flag=value`. This is used in deployment scripts to change the desired outcome environment by adding `-env=staging` or `-env=prod`. Flags for individual grunt tasks are mentioned with their specific task below.
+
+As of `npm` 2.0.0, you can pass script arguments through the `run-script` step to the scripts block in your `package.json` file. To do this, flags need to be located after a `--` delimiter like so: `npm start -- -env=staging`. This would start the local server using the `staging` block in `env.json` and can be useful for debugging without `ng-mocks` (which is included by default with the `local` env).
+
+Additional documentation for NPM's `run-script` can be found [here](https://docs.npmjs.com/cli/run-script)
 
 ## Project Structure
 
