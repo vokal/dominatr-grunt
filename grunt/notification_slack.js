@@ -6,7 +6,7 @@ module.exports = function ( grunt )
 {
     var envConfig = grunt.config( "env" );
     var slackApiToken = grunt.config( "slackApiToken" );
-    var deployVersion = grunt.config( "version" );
+    var commit = grunt.config( "commit" );
     var pkg = grunt.file.readJSON( "package.json" );
     var pkgVersion = pkg.version || "";
     var pkgName = pkg.name || "App";
@@ -28,7 +28,7 @@ module.exports = function ( grunt )
         var slacker = new Slack( slackApiToken );
 
         slacker.api( "chat.postMessage", {
-            text: pkgName + " build " + pkgVersion + " @" + deployVersion + " for " + host
+            text: pkgName + " build " + pkgVersion + " @" + commit + " for " + host
                 + " should be available in about 10 minutes.",
             channel: slackChannel,
             username: "Release Bot"
