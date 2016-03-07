@@ -294,7 +294,7 @@ This list aims to be a reference and may not cover every detail of our implement
 - #### notification_slack
   A task to send a message to a Slack channel after a deployment completes.
 
-  The task requires a target Slack channel and a host url set in the `env.json` file. The target Slack channel should be set in `notification.slackChannel`. The task also requires a Slack API token passed to grunt via a `--slacktoken=$SLACK_TOKEN` switch.
+  The task requires a target Slack channel and a host url set in the `env.json` file. The target Slack channel should be set in `notification.slackChannel`. The task also requires a Slack API token passed to grunt via a `--slacktoken=$SLACK_TOKEN` switch. Documentation for creating an api token can be found [here](https://api.slack.com/docs/oauth-test-tokens).
 
 - #### ngtemplates
   Compiles a `templates.js` file in the build directory with all of the `modules/*/templates/*.html` files for caching in angular. When referencing these files in an angular app, the file path should be similar to `modules/<modulename>/templates/<filename>.html`.
