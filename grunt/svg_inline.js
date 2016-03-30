@@ -8,10 +8,7 @@ module.exports = function ( grunt )
     grunt.registerTask( "svg_inline", "Inline SVG use", function ()
     {
         var done = this.async();
-        var src = [
-            "modules/*/templates/*.html",
-            "!modules/_app/templates/index.html"
-        ];
+        var src = [ "modules/*/templates/*.html" ];
 
         var tasks =
             grunt.file.expandMapping( src, ".inlined", { cwd: "source" } )
