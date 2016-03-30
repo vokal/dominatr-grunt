@@ -5,9 +5,10 @@ build:
   - clean:build
   - truecolors_less
   - less
+  - svg_sprite
+  - svg_inline
   - ngtemplates
   - copy
-  - svg_sprite
   - browserify:build
   - postcss
 

@@ -33,7 +33,7 @@ module.exports = {
     sprite: {
         options: { cwd: "<%= svg_sprite.use.cwd %>" },
         files: "<%= svg_sprite.use.src %>",
-        tasks: [ "svg_sprite" ]
+        tasks: [ "svg_sprite", "svg_inline", "ngtemplates" ]
     },
     livereload: {
         options: { livereload: true },
