@@ -316,6 +316,9 @@ This list aims to be a reference and may not cover every detail of our implement
 - #### svg_sprite
   Generates svg sprites and their `.css` files based on images located in the `source/images/svg-sprite` directory. The output folder is `build/svg-sprite`.
 
+- #### svg_inline
+  Injects SVG content referenced by SVG `<use>` directly into the HTML document. This allows for the good parts of SVG `<use>` like ability to apply CSS to SVG content, without the problematic lack of support in every version of IE. This is inline (haha) with what [GitHub is doing for SVGs](https://github.com/blog/2112-delivering-octicons-with-svg). 
+
 - #### svgmin
   Minification for `.svg` files during deployment.
 
@@ -370,7 +373,7 @@ module.exports = {
 };
 ```
 
-Replacements are done at the subtask level, so the file above would not destroy the `copy:build` task in the process. For more information on writing task files, view the `load-grunt-config` [documenation](https://github.com/firstandthird/load-grunt-config#grunt-tasks-files).
+Replacements are done at the subtask level, so the file above would not destroy the `copy:build` task in the process. For more information on writing task files, view the `load-grunt-config` [documentation](https://github.com/firstandthird/load-grunt-config#grunt-tasks-files).
 
 ## Other Bits
 
@@ -380,6 +383,7 @@ While not required, we suggest adding the following lines to your `.gitignore` f
 /build
 /coverage
 /.instrumented
+/.inlined
 ```
 
-The `/coverage` and `/.instrumented` directories are used during testing and erased with each run. Files in these folders are not intended to be committed. The `/build` folder contents changes with the current environment settings and is not fit for version control.
+The `/coverage` and `/.instrumented` directories are used during testing and erased with each run. Files in these folders are not intended to be committed. The `/.inlined` directory holds HTML build artifacts after they are SVG inlined but before ngtemplates runs. The `/build` folder contents changes with the current environment settings and is not fit for version control.

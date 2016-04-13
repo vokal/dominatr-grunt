@@ -16,7 +16,7 @@ module.exports = {
         ]
     },
     index: {
-        src: "source/modules/_app/templates/index.html",
+        src: ".inlined/modules/_app/templates/index.html",
         dest: "build/index.html"
     }
 };

@@ -3,6 +3,10 @@
 ## Changelog
 
 
+#### 7.0.0 [Breaking Changes] Add svg_inline task
+
+- Adds support to inline the content of SVGs directly into page HTML
+
 #### 6.1.3 Update Grunt JSHint version
 
 - Updated to support JSHint ~2.9.0, most notably the `esversion` property

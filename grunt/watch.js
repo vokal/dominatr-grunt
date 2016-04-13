@@ -14,9 +14,9 @@ module.exports = {
         tasks: [ "newer:jshint:dev" ]
     },
     templates: {
-        options: { cwd: "<%= ngtemplates.build.cwd %>" },
-        files: "<%= ngtemplates.build.src %>",
-        tasks: [ "ngtemplates" ]
+        options: { cwd: "source" },
+        files: "**/*.html",
+        tasks: [ "svg_inline", "ngtemplates" ]
     },
     styles: {
         files: [
@@ -30,10 +30,10 @@ module.exports = {
         files: "<%= copy.build.src %>",
         tasks: [ "newer:copy:build" ]
     },
-    sprite: {
+    svg: {
         options: { cwd: "<%= svg_sprite.use.cwd %>" },
         files: "<%= svg_sprite.use.src %>",
-        tasks: [ "svg_sprite" ]
+        tasks: [ "svg_sprite", "svg_inline", "ngtemplates" ]
     },
     livereload: {
         options: { livereload: true },
