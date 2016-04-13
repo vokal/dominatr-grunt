@@ -14,8 +14,8 @@ module.exports = {
         tasks: [ "newer:jshint:dev" ]
     },
     templates: {
-        options: { cwd: "<%= ngtemplates.build.cwd %>" },
-        files: "<%= ngtemplates.build.src %>",
+        options: { cwd: "source" },
+        files: "**/*.html",
         tasks: [ "svg_inline", "ngtemplates" ]
     },
     styles: {
