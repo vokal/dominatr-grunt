@@ -317,7 +317,7 @@ This list aims to be a reference and may not cover every detail of our implement
   Generates svg sprites and their `.css` files based on images located in the `source/images/svg-sprite` directory. The output folder is `build/svg-sprite`.
 
 - #### svg_inline
-  Injects SVG content referenced by SVG `<use>` directly into the HTML document.
+  Injects SVG content referenced by SVG `<use>` directly into the HTML document. This allows for the good parts of SVG `<use>` like ability to apply CSS to SVG content, without the problematic lack of support in every version of IE. This is inline (haha) with what [GitHub is doing for SVGs](https://github.com/blog/2112-delivering-octicons-with-svg). 
 
 - #### svgmin
   Minification for `.svg` files during deployment.
