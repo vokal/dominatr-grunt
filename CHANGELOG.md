@@ -3,6 +3,10 @@
 ## Changelog
 
 
+#### 6.1.3 Update Grunt JSHint version
+
+- Updated to support JSHint ~2.9.0, most notably the `esversion` property
+
 #### 6.1.2 Move PostCSS to build
 
 - Local files were not functionally equivalent to deployed code which made testing problematic
