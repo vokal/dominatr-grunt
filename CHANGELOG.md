@@ -3,7 +3,7 @@
 ## Changelog
 
 
-#### 7.0.0 Add svg_inline task
+#### 7.0.0 [Breaking Changes] Add svg_inline task
 
 - Adds support to inline the content of SVGs directly into page HTML
 
