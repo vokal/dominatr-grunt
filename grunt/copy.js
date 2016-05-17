@@ -9,11 +9,16 @@ module.exports = {
             "fonts/**/*.*",
             "images/**/*.*",
             "!images/svg-sprite/**/*.*",
-            "favicon/**/*.*",
             "audio/**/*.*",
             "manifest.json",
             "sitemap.txt"
         ]
+    },
+    favicon: {
+        expand: true,
+        cwd: "source/favicon",
+        src: "**/*.*",
+        dest: "build"
     },
     index: {
         src: ".inlined/modules/_app/templates/index.html",
