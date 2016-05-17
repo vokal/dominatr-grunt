@@ -3,6 +3,12 @@
 ## Changelog
 
 
+#### 8.0.0 [Breaking Changes] Move favicons to root directory
+
+- Favicons will be moved to the root directory during the build process to improve browser compatibility
+
+To upgrade, remove `/favicon` from any `link` and `meta` paths in your `index.html` file.  Additionally, remove the `favicon.ico` include line entirely, as its presence in the root makes this line redundant and occasionally problematic in some browsers.
+
 #### 7.0.0 [Breaking Changes] Add svg_inline task
 
 - Adds support to inline the content of SVGs directly into page HTML
